@@ -1,0 +1,16 @@
+<div class="container">
+  <h1> hello {{myname}}</h1>
+
+  <h1> hello {{mylastname}}</h1>
+
+  <input type="text" [(ngModel)]="myname">
+
+  <button (click)="btnClicked()">click here</button>
+
+
+  <ul *ngFor="let elem of phones">
+    <li>model = {{elem.model}}</li>
+    <li>product = {{elem.product}}</li>
+    <li>price = {{elem.price}}</li>
+  </ul>
+</div>
