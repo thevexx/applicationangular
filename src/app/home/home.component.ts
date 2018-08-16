@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  myWeather;
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    console.log('hello from component home')
+
+    this.apiService.getWeather().subscribe( res => {
+      console.log(res.json());
+      this.myWeather = res.json();
+    });
+
+
+
+    console.log('hello from component home' + this.myWeather);
   }
 
 }
